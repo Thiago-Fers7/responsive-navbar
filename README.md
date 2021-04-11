@@ -2,7 +2,7 @@
 
 <img src="./responsive-navbar.gif" alt="Gif navbar" title="responsive navbar">
 
-<br>
+<hr>
 
 <img src="./responsive-navbar-mobile.gif" alt="Gif navbar-mobile" title="responsive navbar-mobile">
 
