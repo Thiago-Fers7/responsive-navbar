@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+:root {
+    --white: #fff;
+    --text: #12334e;
+    --purple: #9051ff;
+}
+
+body, button, input, textarea {
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    background: var(--white);
+    min-height: 100vh;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 1px;
+    background: var(--white);
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+    z-index: 998;
+}
+
+header > a.logo {
+    height: 60px;
+    line-height: 60px;
+    color: var(--text);
+    font-weight: 700;
+    font-size: 2em;
+    padding-left: 1rem;
+    z-index: 999;
+}
+
+header > div.toggle {
+    position: absolute;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: var(--purple);
+    cursor: pointer;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s all ease-in-out;
+
+    z-index: 999;
+}
+
+header > div.toggle::before {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--white);
+    transform: translateY(-10px);
+    transition: 0.2s all ease-in-out;
+}
+
+header > div.toggle::after {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--white);
+    transform: translateY(10px);
+    transition: 0.2s all ease-in-out;
+}
+
+header > div.toggle.active::before {
+    transform: rotate(-45deg);
+}
+
+header > div.toggle.active::after {
+    transform: rotate(45deg);
+}
+
+header > div.toggle.active {
+    background: #f7226a;
+}
+
+header nav {
+    width: 0;
+    overflow: hidden;
+    position: relative;
+    height: 60px;
+    right: 60px;
+    transition: 0.5s all ease-in-out;
+}
+
+header nav ul {
+    display: flex;
+}
+
+header nav ul li a {
+    color: var(--text);
+    height: 60px;
+    line-height: 60px;
+    padding: 0 0.5rem;
+    font-size: 1.2em;
+    display: block;
+    letter-spacing: 1px;
+    transition: 0.1s all ease-in-out;
+}
+
+header nav ul li a:hover {
+    color: var(--white);
+    background: var(--purple);
+}
+
+header > div.toggle.active ~ nav {
+    width: 527px;
+    overflow: visible;
+}
+
+/* MAIN ======================= */
+
+main {
+    height: 100vh;
+}
+
+section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #d8d8d8;
+    font-size: 18vw;
+}
+
+@media (max-width: 991px) {
+    header > nav {
+        position: fixed;
+        bottom: -100%;
+        right: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 3s all .5s;
+    }
+    
+    header > div.toggle.active ~ nav {
+        width: 100%;
+        height: calc(100vh - 60px);
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.623);
+    }
+
+    header > nav > ul {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
